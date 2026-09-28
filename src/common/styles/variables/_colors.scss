@@ -15,6 +15,8 @@
   --color-dark-grey: #454545;
 
   --color-dark-red: #B01212;
+  --color-dark-red-hover: rgba(217, 36, 36, 0.2);
+  --color-dark-red-active: rgba(248, 106, 106, 0.2);
 
   // 2 lvl
   --main-bg: var(--color-off-white);
@@ -22,15 +24,19 @@
 
   --sidebar-color-hover: var(--color-light-orange);
   --sidebar-color-active: var(--color-light-orange-2);
+  --sidebar-color-error-hover: var(--color-dark-red-hover);
+  --sidebar-color-error-active: var(--color-dark-red-active);
 
   --text-color-main: var(--color-black);
   --text-color-hover: var(--color-dark-orange);
   --text-color-second: var(--color-dark-grey);
   --text-color-third: var(--color-mid-grey);
+  --text-color-error: var(--color-dark-red);
 
   --icon-color-main: var(--color-mid-grey);
   --icon-color-second: var(--color-dark-grey);
   --icon-color-hover: var(--color-orange);
+  --icon-color-error: var(--color-dark-red);
 
   --border-color: var(--color-light-grey);
   --border-color-hover: var(--color-light-orange-2);

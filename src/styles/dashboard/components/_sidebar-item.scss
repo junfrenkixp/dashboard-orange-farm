@@ -1,13 +1,18 @@
 @use 'common/styles/variables/colors';
 @use 'common/styles/variables/other';
 
+.sidebar-item-wrap {
+  position: relative;
+}
+
 .sidebar-item {
   position: relative;
   display: flex;
   gap: 12px;
+  align-items: center;
   width: 100%;
   height: 40px;
-  padding: 12px 20px;
+  padding: 2px 20px;
   outline: none;
   border: none;
   cursor: pointer;
@@ -24,9 +29,19 @@
   }
 }
 
+.aside.is-collapsed .sidebar-item {
+  gap: 0;
+  padding: 2px 12px;
+}
+
+.sidebar-item.is-active {
+  background-color: var(--sidebar-color-hover);
+}
+
 .sidebar-item svg {
   height: 16px;
   width: 16px;
+  min-width: 16px;
   color: var(--icon-color-main);
   transition: .3s;
 }
@@ -36,14 +51,104 @@
   color: var(--icon-color-hover);
 }
 
+.sidebar-item img {
+  height: 24px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
 .sidebar-item-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  max-width: 300px;
+  opacity: 1;
+  white-space: nowrap;
+  overflow: hidden;
   font-weight: 400;
   font-size: 14px;
   line-height: 14px;
   letter-spacing: -0.25px;
   color: var(--text-color-main);
+  transition: .3s;
+}
+
+.aside.is-collapsed .sidebar-item-text {
+  max-width: 0;
+  opacity: 0;
 }
 
 .sidebar-item:hover .sidebar-item-text {
   color: var(--text-color-hover);
+}
+
+.sidebar-item-text small {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: -0.3px;
+}
+
+.sidebar-item-text b {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: -0.3px;
+}
+
+.sidebar-item.log-out {
+  &:hover {
+    background-color: var(--sidebar-color-error-hover);
+  }
+  &:active {
+    background-color: var(--sidebar-color-error-active);
+  }
+}
+
+.sidebar-item.log-out .sidebar-item-text {
+  color: var(--text-color-error);
+}
+
+.sidebar-item.log-out svg {
+  color: var(--icon-color-error);
+}
+
+.sidebar-dropdown-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  height: 40px;
+  aspect-ratio: 1;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: transparent;
+  transition: .3s;
+
+  &:hover {
+    background-color: var(--sidebar-color-hover);
+  }
+  &:active {
+    background-color: var(--sidebar-color-active);
+  }
+}
+
+.aside.is-collapsed .sidebar-dropdown-button {
+  display: none;
+}
+
+.sidebar-dropdown-button svg {
+  height: 16px;
+  aspect-ratio: 1;
+  color: var(--icon-color-main);
+  transition: .3s;
+}
+
+.sidebar-item-wrap.is-open .sidebar-dropdown-button svg {
+  transform: rotate(180deg);
 }

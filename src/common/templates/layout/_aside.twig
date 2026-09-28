@@ -1,80 +1,39 @@
 {% import "common/templates/components/_sidebar-item.twig" as sidebar %}
 <aside class="aside">
     <header class="aside-header">
+      <a href="#" class="logo-link">
         <img
             class="logo"
             src="./assets/images/logo.svg"
             alt="Logo OrangeFarm"
             width="148" height="40">
+        <img
+            class="logo-sm"
+            src="./assets/images/logo-sm.svg"
+            alt="Logo OrangeFarm"
+            width="21" height="40">
+      </a>
     </header>
     <div class="aside-main">
-        <form class="main-search" role="search">
-            <label>
-                <span>Search</span>
-                <svg aria-hidden="true" focusable="false">
-                    <use href="./assets/sprite/dashboard.svg#icon-search"></use>
-                </svg>
-                <input type="text" name="search" placeholder="Search">
-            </label>
-        </form>
-        <ul class="main-list">
-            <li class="main-list-item">
-                {{ sidebar.sidebarItem({
-                    text: 'Dashboard',
-                    link: '#',
-                    icon: 'icon-layout-collage'
-                })}}
-            </li>
-            <li class="main-list-item">
-                {{ sidebar.sidebarItem({
-                    text: 'Customers',
-                    icon: 'icon-users'
-                }) }}
-            </li>
-            <li class="main-list-item">
-                {{ sidebar.sidebarItem({
-                    text: 'All reports',
-                    icon: 'icon-clipboard-data'
-                }) }}
-            </li>
-            <li class="main-list-item">
-                {{ sidebar.sidebarItem({
-                    text: 'Geography',
-                    icon: 'icon-world'
-                }) }}
-            </li>
-            <li class="main-list-item">
-                {{ sidebar.sidebarItem({
-                    text: 'Conversations',
-                    icon: 'icon-message-circle'
-                }) }}
-            </li>
-            <li class="main-list-item">
-                {{ sidebar.sidebarItem({
-                    text: 'Deals',
-                    icon: 'icon-basket-check'
-                }) }}
-            </li>
-            <li class="main-list-item">
-                {{ sidebar.sidebarItem({
-                    text: 'Export',
-                    icon: 'icon-database-export'
-                }) }}
-            </li>
-        </ul>
+        {% include 'common/templates/components/_aside-search.twig' %}
+        {{ sidebar.sidebarList([
+            { text: 'Dashboard', isActive: true, icon: 'icon-layout-collage' },
+            { text: 'Customers', icon: 'icon-users',
+              dropdown: [
+                { text: '<b>Chris Friedkly</b><small>Supermarket Villanova</small>', img: './assets/images/avatar-1.avif'},
+                { text: '<b>Maggie Johnson</b><small>Oasis Organic Inc.</small>', img: './assets/images/avatar-2.avif'},
+                { text: '<b>Gael Harry</b><small>New York Finest Fruits</small>', img: './assets/images/avatar-3.avif'},
+                { text: '<b>Jenna Sullivan</b><small>Walmart</small>', img: './assets/images/avatar-4.avif'},
+              ] },
+            { text: 'All reports', icon: 'icon-clipboard-data' },
+            { text: 'Geography', icon: 'icon-world' },
+            { text: 'Conversations', icon: 'icon-message-circle' },
+            { text: 'Deals', icon: 'icon-basket-check' },
+            { text: 'Export', icon: 'icon-database-export' }
+        ]) }}
     </div>
     <footer class="aside-footer">
-        <a href="#" class="profile">
-            <img
-                class="profile-avatar"
-                src="./assets/images/avatar-main.avif"
-                alt="Avatar Gustavo Xavier"
-                width="32" height="32">
-            <div class="profile-info">
-                <div class="profile-name">Gustavo Xavier</div>
-                <span class="profile-badge">Admin</span>
-            </div>
-        </a>
+        {% include 'common/templates/components/_profile-button.twig' %}
         <ul class="footer-list">
             <li class="footer-list-item">
                 {{ sidebar.sidebarItem({
@@ -85,31 +44,13 @@
             <li class="footer-list-item">
                 {{ sidebar.sidebarItem({
                     text: 'Log out',
-                    icon: 'icon-logout'
+                    icon: 'icon-logout',
+                    classes: 'log-out'
                 }) }}
             </li>
         </ul>
     </footer>
-    <button class="collapse-button">
-        Aside collapse button
-        <svg>
-            <use href="./assets/sprite/dashboard.svg#icon-chevron-down"></use>
-        </svg>
-    </button>
+    {% include 'common/templates/components/_collapse-button.twig' %}
 </aside>
-<script>
-	document.addEventListener('click', (e) => {
-		const toggle = e.target.closest('[data-sidebar-toggle]');
-		if (!toggle) return;
-
-		e.preventDefault();
-		e.stopPropagation();
-
-		const expanded = toggle.getAttribute('aria-expanded') === 'true';
-		toggle.setAttribute('aria-expanded', String(!expanded));
-
-		const submenu = document.getElementById(toggle.getAttribute('aria-controls'));
-		if (submenu) submenu.classList.toggle('is-open', !expanded);
-	});
-</script>
+{% include 'common/templates/js/_sidebar-dropdown.twig' %}
 {% include 'common/templates/js/_aside-collapse.twig' %}

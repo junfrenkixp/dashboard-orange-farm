@@ -1,11 +1,18 @@
 {% macro sidebarItem(props) %}
-    {% set itemClass = 'sidebar-item' ~ props.class %}
+    {% set itemClass = 'sidebar-item'
+        ~ (props.classes ? ' ' ~ props.classes : '')
+        ~ (props.isActive ? ' is-active' : '')
+    %}
+
+    {% set wrapClass = 'sidebar-item-wrap'
+        ~ (props.dropdown ? ' has-dropdown' : '')
+    %}
 
     {% set media %}
         {% if props.img %}
             <img src="{{ props.img }}" alt="" class="sidebar-item-img">
         {% elseif props.icon %}
-            <svg>
+            <svg aria-hidden="true" focusable="false">
                 <use href="./assets/sprite/dashboard.svg#{{ props.icon }}"></use>
             </svg>
         {% endif %}
@@ -13,27 +20,41 @@
 
     {% set inner %}
         {{ media }}
-        <span class="sidebar-item-text">{{ props.text }}</span>
+        <span class="sidebar-item-text">{{ props.text|raw  }}</span>
     {% endset %}
 
-{#    {% set dropdown %}#}
-{#        <button>#}
-{#            <svg>#}
-{#                <use href="./assets/sprite/dashboard.svg#icon-chevron-down"></use>#}
-{#            </svg>#}
-{#        </button>#}
-{#        <ul>#}
-
-{#        </ul>#}
-{#    {% endset %}#}
-
-    <div>
+    <div class="{{ wrapClass }}">
         {% if props.link %}
             <a href="{{ props.link }}" class="{{ itemClass }}">{{ inner }}</a>
         {% else %}
             <button class="{{ itemClass }}">{{ inner }}</button>
         {% endif %}
+        {% if props.dropdown %}
+          <button
+                type="button"
+                class="sidebar-dropdown-button"
+                aria-expanded="false"
+                data-sidebar-dropdown-toggle
+            >
+                <svg aria-hidden="true" focusable="false">
+                    <use href="./assets/sprite/dashboard.svg#icon-chevron-down"></use>
+                </svg>
+            </button>
+          <div class="sidebar-dropdown-list-wrap">
+            <ul class="sidebar-dropdown-list">
+              {% for child in props.dropdown %}
+                <li>{{ _self.sidebarItem(child) }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
     </div>
+{% endmacro %}
 
-
+{% macro sidebarList(items) %}
+    <ul class="sidebar-list">
+        {% for item in items %}
+            <li>{{ _self.sidebarItem(item) }}</li>
+        {% endfor %}
+    </ul>
 {% endmacro %}
