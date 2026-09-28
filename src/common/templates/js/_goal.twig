@@ -1,0 +1,14 @@
+<script>
+	function setProgress(percent) {
+		const value = document.querySelector('.progress-value');
+		const number = document.querySelector('.progress-number');
+
+		const length = value.getTotalLength();
+
+		value.style.strokeDasharray = length;
+		value.style.strokeDashoffset = length * (1 - percent / 100);
+
+		number.textContent = `${percent}%`;
+	}
+	setProgress(84);
+</script>

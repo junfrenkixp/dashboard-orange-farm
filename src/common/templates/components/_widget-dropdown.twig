@@ -1,0 +1,19 @@
+<div class="widget-dropdown-wrap">
+    <button class="widget-dropdown-button" type="button">
+        <span>{{ buttonContent|raw }}</span>
+        <svg>
+            <use href="./assets/sprite/dashboard.svg#icon-chevron-down"></use>
+        </svg>
+    </button>
+    <div class="widget-dropdown">
+        <ul>
+            {% for item in items %}
+                <li>
+                    <button type="button" data-value="{{ item.value }}">{{ item.label }}</button>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+

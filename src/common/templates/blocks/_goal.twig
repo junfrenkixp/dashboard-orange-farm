@@ -1,0 +1,18 @@
+<div class="widget goal">
+    <div class="widget-inner">
+        <h2 class="widget-title">Quarter goal</h2>
+        <div class="progress">
+            <svg viewBox="0 0 100 55" aria-hidden="true">
+                <path class="progress-track" d="M 5 50 A 45 45 0 0 1 95 50" />
+                <path class="progress-value" d="M 5 50 A 45 45 0 0 1 95 50" />
+            </svg>
+            <div class="progress-number">84%</div>
+        </div>
+    </div>
+    {% include "common/templates/components/_widget-link.twig" with {
+        text: 'All goals',
+        center: true
+    } only %}
+</div>
+
+

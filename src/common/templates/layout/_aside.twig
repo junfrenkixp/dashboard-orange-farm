@@ -1,3 +1,4 @@
+{% import "common/templates/components/_sidebar-item.twig" as sidebar %}
 <aside class="aside">
     <header class="aside-header">
         <img
@@ -7,37 +8,63 @@
             width="148" height="40">
     </header>
     <div class="aside-main">
-        <form class="main-search">
-            <label for="">
-
+        <form class="main-search" role="search">
+            <label>
+                <span>Search</span>
+                <svg aria-hidden="true" focusable="false">
+                    <use href="./assets/sprite/dashboard.svg#icon-search"></use>
+                </svg>
+                <input type="text" name="search" placeholder="Search">
             </label>
         </form>
         <ul class="main-list">
             <li class="main-list-item">
-                {% include '../components/_sidebar-item.twig' %}
+                {{ sidebar.sidebarItem({
+                    text: 'Dashboard',
+                    link: '#',
+                    icon: 'icon-layout-collage'
+                })}}
             </li>
             <li class="main-list-item">
-                {% include '../components/_sidebar-item.twig' %}
+                {{ sidebar.sidebarItem({
+                    text: 'Customers',
+                    icon: 'icon-users'
+                }) }}
             </li>
             <li class="main-list-item">
-                {% include '../components/_sidebar-item.twig' %}
+                {{ sidebar.sidebarItem({
+                    text: 'All reports',
+                    icon: 'icon-clipboard-data'
+                }) }}
             </li>
             <li class="main-list-item">
-                {% include '../components/_sidebar-item.twig' %}
+                {{ sidebar.sidebarItem({
+                    text: 'Geography',
+                    icon: 'icon-world'
+                }) }}
             </li>
             <li class="main-list-item">
-                {% include '../components/_sidebar-item.twig' %}
+                {{ sidebar.sidebarItem({
+                    text: 'Conversations',
+                    icon: 'icon-message-circle'
+                }) }}
             </li>
             <li class="main-list-item">
-                {% include '../components/_sidebar-item.twig' %}
+                {{ sidebar.sidebarItem({
+                    text: 'Deals',
+                    icon: 'icon-basket-check'
+                }) }}
             </li>
             <li class="main-list-item">
-                {% include '../components/_sidebar-item.twig' %}
+                {{ sidebar.sidebarItem({
+                    text: 'Export',
+                    icon: 'icon-database-export'
+                }) }}
             </li>
         </ul>
     </div>
     <footer class="aside-footer">
-        <div class="profile">
+        <a href="#" class="profile">
             <img
                 class="profile-avatar"
                 src="./assets/images/avatar-main.avif"
@@ -47,14 +74,42 @@
                 <div class="profile-name">Gustavo Xavier</div>
                 <span class="profile-badge">Admin</span>
             </div>
-        </div>
+        </a>
         <ul class="footer-list">
             <li class="footer-list-item">
-                {% include '../components/_sidebar-item.twig' %}
+                {{ sidebar.sidebarItem({
+                    text: 'Settings',
+                    icon: 'icon-settings-2'
+                }) }}
             </li>
             <li class="footer-list-item">
-                {% include '../components/_sidebar-item.twig' %}
+                {{ sidebar.sidebarItem({
+                    text: 'Log out',
+                    icon: 'icon-logout'
+                }) }}
             </li>
         </ul>
     </footer>
+    <button class="collapse-button">
+        Aside collapse button
+        <svg>
+            <use href="./assets/sprite/dashboard.svg#icon-chevron-down"></use>
+        </svg>
+    </button>
 </aside>
+<script>
+	document.addEventListener('click', (e) => {
+		const toggle = e.target.closest('[data-sidebar-toggle]');
+		if (!toggle) return;
+
+		e.preventDefault();
+		e.stopPropagation();
+
+		const expanded = toggle.getAttribute('aria-expanded') === 'true';
+		toggle.setAttribute('aria-expanded', String(!expanded));
+
+		const submenu = document.getElementById(toggle.getAttribute('aria-controls'));
+		if (submenu) submenu.classList.toggle('is-open', !expanded);
+	});
+</script>
+{% include 'common/templates/js/_aside-collapse.twig' %}

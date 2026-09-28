@@ -1,0 +1,9 @@
+<script>
+	const collapseButton = document.querySelector('.collapse-button');
+	const aside = document.querySelector('.aside');
+
+	collapseButton.addEventListener('click', function () {
+        this.classList.toggle('is-hidden');
+        aside.classList.toggle('is-small');
+    });
+</script>

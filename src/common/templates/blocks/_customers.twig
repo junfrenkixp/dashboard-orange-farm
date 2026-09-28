@@ -1,0 +1,16 @@
+<div class="widget customers">
+    <div class="widget-inner">
+        <h2 class="widget-title">Customers</h2>
+        {% include "common/templates/components/_widget-dropdown.twig" with {
+            buttonContent: 'Sort by <span data-role="value">Newest</span>',
+            items: [
+                { label: 'Newest', value: 'newest' },
+                { label: 'Latest', value: 'latest' },
+                { label: 'Oldest', value: 'oldest' }
+            ]
+        } only %}
+    </div>
+    {% include "common/templates/components/_widget-link.twig" with {
+        text: 'All customers'
+    } only %}
+</div>

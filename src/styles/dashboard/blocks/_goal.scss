@@ -1,0 +1,51 @@
+.goal {
+  grid-column: span 2;
+}
+
+.goal .widget-title {
+  text-align: center;
+}
+
+.progress {
+  position: relative;
+  width: 100%;
+  margin-bottom: 47px;
+}
+
+.progress svg {
+  display: block;
+  max-width: 210px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.progress-track,
+.progress-value {
+  fill: none;
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+
+.progress-track {
+  stroke: #FFF7E8;
+}
+
+.progress-value {
+  stroke: #FFCD71;
+  stroke-dasharray: 141.37;
+  stroke-dashoffset: 22.62;
+  transition: stroke-dashoffset 0.8s ease;
+}
+
+.progress-number {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: -1.59px;
+  color: var(--text-color-main);
+}

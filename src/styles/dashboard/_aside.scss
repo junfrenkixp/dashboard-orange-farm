@@ -2,11 +2,19 @@
 @use 'common/styles/variables/other';
 
 .aside {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 280px;
+  min-width: 280px;
   border-radius: var(--border-radius-main);
   background-color: var(--surface-bg);
+  transition: .3s;
+}
+
+.aside.is-small {
+  width: 56px;
+  min-width: 56px;
 }
 
 .aside-header {
@@ -19,7 +27,69 @@
 }
 
 .aside-main {
+  padding: 0 8px;
+}
 
+.main-search {
+  padding: 0 12px;
+}
+
+.main-search label span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.main-search label {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  transition: .3s;
+
+  &:hover {
+    border-color: var(--border-color-hover);
+  }
+  &:focus-within {
+    border-color: var(--border-color-active);
+    box-shadow: 0 0 0 3px var(--color-light-orange);
+  }
+}
+
+.main-search label svg {
+  height: 16px;
+  aspect-ratio: 1;
+  color: var(--icon-color-main);
+  transition: .3s;
+}
+
+.main-search label:hover svg,
+.main-search label:focus-within svg {
+  color: var(--icon-color-hover);
+}
+
+.main-search label input {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  outline: none;
+  text-overflow: ellipsis;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 38px;
+  letter-spacing: -0.25px;
+  color: var(--text-color-main);
+  background-color: transparent;
+}
+
+.main-search label input::placeholder {
+  color: var(--text-color-third);
 }
 
 .main-list {
@@ -40,8 +110,17 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  height: 40px;
-  padding: 0 20px;
+  padding: 12px 20px;
+  border-radius: var(--border-radius-button);
+  text-decoration: none;
+  transition: .3s;
+
+  &:hover {
+    background-color: var(--sidebar-color-hover);
+  }
+  &:active {
+    background-color: var(--sidebar-color-active);
+  }
 }
 
 .profile-avatar {
@@ -77,4 +156,36 @@
   margin: 12px 0 0;
   padding: 0;
   list-style: none;
+}
+
+.collapse-button {
+  position: absolute;
+  right: -12px;
+  bottom: 30%;
+  height: 28px;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  border-radius: var(--border-radius-button);
+  outline: none;
+  cursor: pointer;
+  font-size: 0;
+  background-color: var(--color-off-white);
+  box-shadow: var(--shadow-gamma);
+}
+
+.collapse-button svg {
+  height: 16px;
+  aspect-ratio: 1;
+  color: var(--icon-color-second);
+  transform: rotate(90deg);
+  transition: .3s;
+}
+
+.collapse-button.is-hidden svg {
+  transform: rotate(-90deg);
+}
+
+.collapse-button:hover svg {
+  color: var(--icon-color-hover);
 }

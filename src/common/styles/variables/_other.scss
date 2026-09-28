@@ -1,4 +1,14 @@
 :root {
-  --border-radius-main: 16px;
-  --border-radius-sidebar-item: 24px;
+  // 1 lvl
+  --radius-small: 8px;
+  --radius-medium: 12px;
+  --radius-large: 16px;
+  --radius-xlarge: 24px;
+
+  // 2 lvl
+  --border-radius-button: var(--radius-small);
+  --border-radius-main: var(--radius-large);
+  --border-radius-sidebar-item: var(--radius-xlarge);
+
+  --shadow-gamma: 0 6px 24px 0 rgba(0,0,0,.2);
 }

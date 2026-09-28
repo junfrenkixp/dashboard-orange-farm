@@ -1,13 +1,38 @@
 :root {
-  --main-bg: #F6F6F3;
-  --surface-bg: #fff;
+  // 1 lvl
+  --color-off-white: #F6F6F3;
+  --color-white: #fff;
+  --color-black: #131313;
 
-  --sidebar-color-hover: #FFF7E8;
-  --sidebar-color-active: #fff1b6;
+  --color-orange: #FFA500;
+  --color-light-orange: #FFF7E8;
+  --color-light-orange-2: #fff1b6;
+  --color-mid-orange: #FFCD71;
+  --color-dark-orange: #734A00;
 
-  --text-color-main: #131313;
-  --text-color-hover: #734A00;
+  --color-light-grey: #F1F1F1;
+  --color-mid-grey: #7D7D7D;
+  --color-dark-grey: #454545;
 
-  --icon-color-main: #7D7D7D;
-  --icon-color-hover: #FFA500;
+  --color-dark-red: #B01212;
+
+  // 2 lvl
+  --main-bg: var(--color-off-white);
+  --surface-bg: var(--color-white);
+
+  --sidebar-color-hover: var(--color-light-orange);
+  --sidebar-color-active: var(--color-light-orange-2);
+
+  --text-color-main: var(--color-black);
+  --text-color-hover: var(--color-dark-orange);
+  --text-color-second: var(--color-dark-grey);
+  --text-color-third: var(--color-mid-grey);
+
+  --icon-color-main: var(--color-mid-grey);
+  --icon-color-second: var(--color-dark-grey);
+  --icon-color-hover: var(--color-orange);
+
+  --border-color: var(--color-light-grey);
+  --border-color-hover: var(--color-light-orange-2);
+  --border-color-active: var(--color-mid-orange);
 }

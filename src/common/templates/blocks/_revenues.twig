@@ -1,0 +1,15 @@
+<div class="widget revenues">
+    <div class="widget-inner">
+        <h2 class="widget-title">Revenues</h2>
+        <div class="revenues-percent">
+            15%
+            <svg>
+                <use href="./assets/sprite/dashboard.svg#icon-arrow-up-right"></use>
+            </svg>
+        </div>
+        <p class="revenues-descr">Increase compared to last week</p>
+    </div>
+    {% include "common/templates/components/_widget-link.twig" with {
+        text: 'Revenues report'
+    } only %}
+</div>

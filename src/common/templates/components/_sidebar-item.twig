@@ -1,6 +1,39 @@
-<button class="sidebar-item">
-    <svg>
-        <use href="./assets/sprite/dashboard.svg#icon-settings-2"></use>
-    </svg>
-    <span class="sidebar-item-text">Sidebar item</span>
-</button>
+{% macro sidebarItem(props) %}
+    {% set itemClass = 'sidebar-item' ~ props.class %}
+
+    {% set media %}
+        {% if props.img %}
+            <img src="{{ props.img }}" alt="" class="sidebar-item-img">
+        {% elseif props.icon %}
+            <svg>
+                <use href="./assets/sprite/dashboard.svg#{{ props.icon }}"></use>
+            </svg>
+        {% endif %}
+    {% endset %}
+
+    {% set inner %}
+        {{ media }}
+        <span class="sidebar-item-text">{{ props.text }}</span>
+    {% endset %}
+
+{#    {% set dropdown %}#}
+{#        <button>#}
+{#            <svg>#}
+{#                <use href="./assets/sprite/dashboard.svg#icon-chevron-down"></use>#}
+{#            </svg>#}
+{#        </button>#}
+{#        <ul>#}
+
+{#        </ul>#}
+{#    {% endset %}#}
+
+    <div>
+        {% if props.link %}
+            <a href="{{ props.link }}" class="{{ itemClass }}">{{ inner }}</a>
+        {% else %}
+            <button class="{{ itemClass }}">{{ inner }}</button>
+        {% endif %}
+    </div>
+
+
+{% endmacro %}
