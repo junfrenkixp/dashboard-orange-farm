@@ -1,0 +1,24 @@
+@use 'sass:math';
+
+@mixin custom-scrollbar($thumb: #FFCD71, $thumb-hover: #fff1b6, $size: 6px, $track: transparent) {
+  scrollbar-width: thin;
+  scrollbar-color: $thumb $track;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: $size;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $track;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $thumb;
+    border-radius: math.div($size, 2);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: $thumb-hover;
+  }
+}

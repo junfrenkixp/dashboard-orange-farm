@@ -29,7 +29,7 @@
   }
 }
 
-.aside.is-collapsed .sidebar-item {
+.aside-inner.is-collapsed .sidebar-item {
   gap: 0;
   padding: 2px 12px;
 }
@@ -74,7 +74,7 @@
   transition: .3s;
 }
 
-.aside.is-collapsed .sidebar-item-text {
+.aside-inner.is-collapsed .sidebar-item-text {
   max-width: 0;
   opacity: 0;
 }
@@ -138,7 +138,7 @@
   }
 }
 
-.aside.is-collapsed .sidebar-dropdown-button {
+.aside-inner.is-collapsed .sidebar-dropdown-button {
   display: none;
 }
 

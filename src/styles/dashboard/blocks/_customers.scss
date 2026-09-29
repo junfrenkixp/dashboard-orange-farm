@@ -1,5 +1,6 @@
 @use 'common/styles/variables/colors';
 @use 'common/styles/variables/other';
+@use 'common/styles/mixins/custom-scrollbar' as scrollbar;
 
 .customers {
   grid-column: span 5;
@@ -10,11 +11,12 @@
 }
 
 .customers-list {
-  max-height: 426px;
+  max-height: 370px;
   margin: 0 -16px 16px;
   padding: 0;
-  overflow: auto;
+  overflow-x: hidden;
   list-style: none;
+  @include scrollbar.custom-scrollbar;
 }
 
 .customers-item {

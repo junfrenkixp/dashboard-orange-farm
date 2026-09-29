@@ -1,5 +1,5 @@
 const collapseButton = document.querySelector('.collapse-button');
-const aside = document.querySelector('.aside');
+const aside = document.querySelector('.aside-inner');
 const sidebarDropdowns = document.querySelectorAll('.sidebar-item-wrap');
 
 collapseButton.addEventListener('click', function () {

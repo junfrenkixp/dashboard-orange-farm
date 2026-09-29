@@ -1,18 +1,24 @@
 @use 'common/styles/variables/colors';
 @use 'common/styles/variables/other';
+@use 'common/styles/mixins/custom-scrollbar' as scrollbar;
 
 .aside {
+  padding: 16px 0 16px 16px;
+}
+
+.aside-inner {
   position: relative;
   display: flex;
   flex-direction: column;
   width: 280px;
   min-width: 280px;
+  height: 100%;
   border-radius: var(--border-radius-main);
   background-color: var(--surface-bg);
   transition: .3s;
 }
 
-.aside.is-collapsed {
+.aside-inner.is-collapsed {
   width: 56px;
   min-width: 56px;
 }
@@ -23,7 +29,7 @@
   transition: .3s;
 }
 
-.aside.is-collapsed .aside-header {
+.aside-inner.is-collapsed .aside-header {
   padding: 16px 17px 12px 18px;
 }
 
@@ -50,28 +56,25 @@
   opacity: 0;
 }
 
-.aside.is-collapsed .logo-link {
+.aside-inner.is-collapsed .logo-link {
   width: 21px;
 }
 
-.aside.is-collapsed .logo {
+.aside-inner.is-collapsed .logo {
   opacity: 0;
 }
 
-.aside.is-collapsed .logo-sm {
+.aside-inner.is-collapsed .logo-sm {
   opacity: 1;
 }
 
-.aside-main {
-  padding: 0 8px;
-}
-
 .main-search {
+  margin: 0 8px;
   padding: 0 12px;
   transition: .3s;
 }
 
-.aside.is-collapsed .main-search {
+.aside-inner.is-collapsed .main-search {
   padding: 0;
 }
 
@@ -104,7 +107,7 @@
   }
 }
 
-.aside.is-collapsed .main-search label {
+.aside-inner.is-collapsed .main-search label {
   padding: 0 12px;
   cursor: pointer;
 }
@@ -145,7 +148,10 @@
   flex-direction: column;
   gap: 8px;
   padding: 0;
+  margin: 20px 8px 0;
   list-style: none;
+  overflow-x: hidden;
+  @include scrollbar.custom-scrollbar;
 }
 
 .sidebar-dropdown-list-wrap {
@@ -195,7 +201,7 @@
   }
 }
 
-.aside.is-collapsed .profile {
+.aside-inner.is-collapsed .profile {
   padding: 4px;
   max-height: 40px;
   border-radius: 50%;
@@ -223,7 +229,7 @@
   transition: .3s;
 }
 
-.aside.is-collapsed .profile-name {
+.aside-inner.is-collapsed .profile-name {
   max-width: 0;
   opacity: 0;
 }
@@ -244,7 +250,7 @@
   transition: .3s;
 }
 
-.aside.is-collapsed .profile-badge {
+.aside-inner.is-collapsed .profile-badge {
   max-width: 0;
   opacity: 0;
 }

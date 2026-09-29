@@ -1,18 +1,16 @@
-<div class="aside-main">
-    {% include 'common/templates/components/_aside-search.twig' %}
-    {{ sidebar.sidebarList([
-        { text: 'Dashboard', isActive: true, icon: 'icon-layout-collage' },
-        { text: 'Customers', icon: 'icon-users',
-          dropdown: [
-            { text: '<b>Chris Friedkly</b><small>Supermarket Villanova</small>', img: './assets/images/avatar-1.avif'},
-            { text: '<b>Maggie Johnson</b><small>Oasis Organic Inc.</small>', img: './assets/images/avatar-2.avif'},
-            { text: '<b>Gael Harry</b><small>New York Finest Fruits</small>', img: './assets/images/avatar-3.avif'},
-            { text: '<b>Jenna Sullivan</b><small>Walmart</small>', img: './assets/images/avatar-4.avif'},
-          ] },
-        { text: 'All reports', icon: 'icon-clipboard-data' },
-        { text: 'Geography', icon: 'icon-world' },
-        { text: 'Conversations', icon: 'icon-message-circle' },
-        { text: 'Deals', icon: 'icon-basket-check' },
-        { text: 'Export', icon: 'icon-database-export' }
-    ]) }}
-</div>
+{% include 'common/templates/components/_aside-search.twig' %}
+{{ sidebar.sidebarList([
+  { text: 'Dashboard', isActive: true, icon: 'icon-layout-collage' },
+  { text: 'Customers', icon: 'icon-users',
+    dropdown: [
+      { text: '<b>Chris Friedkly</b><small>Supermarket Villanova</small>', img: './assets/images/avatar-1.avif'},
+      { text: '<b>Maggie Johnson</b><small>Oasis Organic Inc.</small>', img: './assets/images/avatar-2.avif'},
+      { text: '<b>Gael Harry</b><small>New York Finest Fruits</small>', img: './assets/images/avatar-3.avif'},
+      { text: '<b>Jenna Sullivan</b><small>Walmart</small>', img: './assets/images/avatar-4.avif'},
+    ] },
+  { text: 'All reports', icon: 'icon-clipboard-data' },
+  { text: 'Geography', icon: 'icon-world' },
+  { text: 'Conversations', icon: 'icon-message-circle' },
+  { text: 'Deals', icon: 'icon-basket-check' },
+  { text: 'Export', icon: 'icon-database-export' }
+]) }}
