@@ -1,8 +1,10 @@
 # Dashboard for OrangeFarm
 
-### [Project link](https://junfrenkixp.github.io/dashboard-orange-farm/)
+### [Demo link](https://junfrenkixp.github.io/dashboard-orange-farm/)
 
 ### [Link to the layout in Figma](https://www.figma.com/design/sg9RjXAiubQTnZ5L4kifYV/OrangeFarm?node-id=0-1&p=f&t=ojZYAV0hUIjd3VZS-0)
+
+![Dashboard preview](./.github/preview.png)
 
 ## About the Project
 
