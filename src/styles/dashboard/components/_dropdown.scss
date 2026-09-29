@@ -1,3 +1,6 @@
+@use 'common/styles/variables/colors';
+@use 'common/styles/variables/other';
+
 .dropdown-wrap {
   position: relative;
   z-index: 10;

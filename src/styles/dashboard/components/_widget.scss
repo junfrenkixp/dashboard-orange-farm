@@ -1,4 +1,6 @@
 @use "sass:color";
+@use 'common/styles/variables/colors';
+@use 'common/styles/variables/other';
 
 .widget {
   position: relative;

@@ -1,11 +1,15 @@
 @forward 'common/styles/base/normalize';
+@forward 'common/styles/base/fonts';
+
 @forward 'dashboard/root';
 @forward 'dashboard/aside';
 @forward 'dashboard/main';
+
 @forward 'dashboard/components/sidebar-item';
 @forward 'dashboard/components/widget';
 @forward 'dashboard/components/widget-dropdown';
 @forward 'dashboard/components/dropdown';
+
 @forward 'dashboard/blocks/revenues';
 @forward 'dashboard/blocks/lost-deals';
 @forward 'dashboard/blocks/goal';

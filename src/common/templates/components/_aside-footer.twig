@@ -1,0 +1,18 @@
+<footer class="aside-footer">
+    {% include 'common/templates/components/_profile-button.twig' %}
+    <ul class="footer-list">
+        <li class="footer-list-item">
+            {{ sidebar.sidebarItem({
+                text: 'Settings',
+                icon: 'icon-settings-2'
+            }) }}
+        </li>
+        <li class="footer-list-item">
+            {{ sidebar.sidebarItem({
+                text: 'Log out',
+                icon: 'icon-logout',
+                classes: 'log-out'
+            }) }}
+        </li>
+    </ul>
+</footer>
