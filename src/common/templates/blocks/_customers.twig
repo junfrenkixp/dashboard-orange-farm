@@ -3,6 +3,7 @@
         <h2 class="widget-title">Customers</h2>
         {% include "common/templates/components/_widget-dropdown.twig" with {
             buttonContent: 'Sort by <span data-role="value">Newest</span>',
+            dropdownId: 'customers-sort',
             items: [
                 { label: 'Newest', value: 'newest' },
                 { label: 'Latest', value: 'latest' },
@@ -12,21 +13,25 @@
         <ul class="customers-list">
           {% set customersList = [
             {
+              'order': 1,
               'img': './assets/images/avatar-1.avif',
               'name': 'Chris Friedkly',
               'info': 'Supermarket Villanova'
             },
             {
+              'order': 2,
               'img': './assets/images/avatar-2.avif',
               'name': 'Maggie Johnson',
               'info': 'Oasis Organic Inc.'
             },
             {
+              'order': 3,
               'img': './assets/images/avatar-3.avif',
               'name': 'Gael Harry',
               'info': 'New York Finest Fruits'
             },
             {
+              'order': 4,
               'img': './assets/images/avatar-4.avif',
               'name': 'Jenna Sullivan',
               'info': 'Walmart'
@@ -34,7 +39,7 @@
           ] %}
 
           {% for customer in customersList %}
-            <li class="customers-item">
+            <li class="customers-item" data-order="{{ customer.order }}">
               <a href="#">
                 <img src="{{ customer.img }}" alt="" width="32" height="32">
               </a>

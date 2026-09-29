@@ -1,0 +1,17 @@
+document.addEventListener('click', e => {
+  const toggle = e.target.closest('[data-sidebar-dropdown-toggle]');
+  if (!toggle) return;
+
+  e.preventDefault();
+  e.stopPropagation();
+
+  // Находим именно тот wrap, внутри которого кликнули
+  const wrap = toggle.closest('.sidebar-item-wrap');
+  if (!wrap) return;
+
+  const expanded = toggle.getAttribute('aria-expanded') === 'true';
+  const next = !expanded;
+
+  toggle.setAttribute('aria-expanded', String(next));
+  wrap.classList.toggle('is-open', next);
+});

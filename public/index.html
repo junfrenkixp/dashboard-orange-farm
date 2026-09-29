@@ -228,44 +228,6 @@
     </svg>
 </button>
 </aside>
-<script>
-  document.addEventListener('click', e => {
-    const toggle = e.target.closest('[data-sidebar-dropdown-toggle]');
-    if (!toggle) return;
-
-    e.preventDefault();
-    e.stopPropagation();
-
-    // Находим именно тот wrap, внутри которого кликнули
-    const wrap = toggle.closest('.sidebar-item-wrap');
-    if (!wrap) return;
-
-    const expanded = toggle.getAttribute('aria-expanded') === 'true';
-    const next = !expanded;
-
-    toggle.setAttribute('aria-expanded', String(next));
-    wrap.classList.toggle('is-open', next);
-  });
-</script>
-<script>
-	const collapseButton = document.querySelector('.collapse-button');
-	const aside = document.querySelector('.aside');
-	const sidebarDropdowns = document.querySelectorAll('.sidebar-item-wrap');
-
-	collapseButton.addEventListener('click', function () {
-    this.classList.toggle('is-hidden');
-    aside.classList.toggle('is-collapsed');
-    sidebarDropdowns.forEach(dropdown => {
-      dropdown.classList.remove('is-open')
-
-      const toggle = dropdown.querySelector('[data-sidebar-dropdown-toggle]');
-
-      if (toggle) {
-          toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-  });
-</script>
     <main class="main">
     <div class="widget revenues">
     <div class="widget-inner">
@@ -318,23 +280,10 @@
 </div>
 
 
-    <script>
-	function setProgress(percent) {
-		const value = document.querySelector('.progress-value');
-		const number = document.querySelector('.progress-number');
-
-		const length = value.getTotalLength();
-
-		value.style.strokeDasharray = length;
-		value.style.strokeDashoffset = length * (1 - percent / 100);
-
-		number.textContent = `${percent}%`;
-	}
-	setProgress(84);
-</script>    <div class="widget customers">
+    <div class="widget customers">
     <div class="widget-inner">
         <h2 class="widget-title">Customers</h2>
-        <div class="widget-dropdown-wrap">
+        <div class="widget-dropdown-wrap" id="customers-sort">
     <button class="widget-dropdown-button" type="button">
         <span>Sort by <span data-role="value">Newest</span></span>
         <svg aria-hidden="true" focusable="false">
@@ -357,7 +306,7 @@
 </div>
         <ul class="customers-list">
           
-                      <li class="customers-item">
+                      <li class="customers-item" data-order="1">
               <a href="#">
                 <img src="./assets/images/avatar-1.avif" alt="" width="32" height="32">
               </a>
@@ -394,7 +343,7 @@
                 </div>
               </div>
             </li>
-                      <li class="customers-item">
+                      <li class="customers-item" data-order="2">
               <a href="#">
                 <img src="./assets/images/avatar-2.avif" alt="" width="32" height="32">
               </a>
@@ -431,7 +380,7 @@
                 </div>
               </div>
             </li>
-                      <li class="customers-item">
+                      <li class="customers-item" data-order="3">
               <a href="#">
                 <img src="./assets/images/avatar-3.avif" alt="" width="32" height="32">
               </a>
@@ -468,7 +417,7 @@
                 </div>
               </div>
             </li>
-                      <li class="customers-item">
+                      <li class="customers-item" data-order="4">
               <a href="#">
                 <img src="./assets/images/avatar-4.avif" alt="" width="32" height="32">
               </a>
@@ -518,7 +467,7 @@
   <div class="widget growth">
     <div class="widget-inner">
         <h2 class="widget-title">Growth</h2>
-        <div class="widget-dropdown-wrap">
+        <div class="widget-dropdown-wrap" id="chart-period">
     <button class="widget-dropdown-button" type="button">
         <span>Yearly</span>
         <svg aria-hidden="true" focusable="false">
@@ -534,7 +483,7 @@
                     <button type="button" data-value="monthly">Monthly</button>
                 </li>
                             <li>
-                    <button type="button" data-value="daily">Daily</button>
+                    <button type="button" data-value="all">All</button>
                 </li>
                     </ul>
     </div>
@@ -571,97 +520,6 @@
     </div>
   </div>
 </div>
-
-<script src="./assets/js/apexCharts.js"></script>
-<script>
-const datasets = {
-            yearly: {
-                categories: ['2016','2017','2018','2019','2020','2021','2022','2023'],
-                values:     [8000, 10000, 30000, 55000, 8000, 14000, 55000, 100000]
-            },
-            monthly: {
-                categories: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
-                values:     [4000, 6000, 8000, 12000, 18000, 25000, 30000, 34000, 38000, 42000, 46000, 50000]
-            },
-            all: {
-                categories: ['2018','2019','2020','2021','2022','2023','2024','2025'],
-                values:     [20000, 35000, 28000, 45000, 62000, 78000, 90000, 110000]
-            }
-        };
-
-        const baseOptions = {
-            chart: {
-                type: 'area',
-                height: 250,
-                toolbar: { show: false },
-                zoom: { enabled: false },
-                fontFamily: 'inherit'
-            },
-            stroke: {
-                curve: 'straight',
-                width: 2,
-                dashArray: 6,
-                colors: ['#25CD25']
-            },
-            fill: {
-                type: 'gradient',
-                gradient: {
-                    gradientToColors: ['#25CD25', '#25CD25'],
-                    shadeIntensity: 1,
-                    opacityFrom: 0.7,
-                    opacityTo: 0.1,
-                    stops: [0, 1000]
-                }
-            },
-            colors: ['#25CD25'],
-            markers: { size: 0, hover: { size: 5 } },
-            dataLabels: { enabled: false },
-            tooltip: {
-                enabled: true,
-                shared: false,
-                intersect: false,
-                x: { show: true },
-                y: { formatter: (v) => v.toLocaleString('en-US') },
-                marker: { show: false },
-                theme: 'light',
-                style: { fontSize: '13px' }
-            },
-            grid: {
-                borderColor: '#F1F1F1',
-                strokeDashArray: 0,
-                xaxis: { lines: { show: true } },
-                yaxis: { lines: { show: true } }
-            },
-            xaxis: {
-                labels: { style: { colors: '#8b8b8b', fontSize: '14px' } },
-                axisBorder: { show: false },
-                axisTicks: { show: false },
-                tooltip: { enabled: false }
-            },
-            yaxis: {
-              min: 0,
-              max: 100000,
-              tickAmount: 4,
-              labels: {
-                  formatter: function (value) {
-                      if (value === 0) return '0';
-                      if (value === 25000) return '10k';
-                      if (value === 50000) return '20k';
-                      if (value === 75000) return '50k';
-                      if (value === 100000) return '100k';
-                  }
-              }
-            }
-        };
-
-        const chartEl = document.querySelector('#growthChart');
-        const chart = new ApexCharts(chartEl, {
-            ...baseOptions,
-            series: [{ name: 'Growth', data: datasets.yearly.values }],
-            xaxis: { ...baseOptions.xaxis, categories: datasets.yearly.categories }
-        });
-        chart.render();
-</script>
     <div class="widget chats">
     <div class="widget-inner">
         <h2 class="widget-title">Chats</h2>
@@ -792,36 +650,11 @@ const datasets = {
     </div>
 </div>
 </main>
-<script>
-	document.querySelectorAll('.widget-dropdown-wrap').forEach((dropdown) => {
-		const button = dropdown.querySelector('.widget-dropdown-button');
-		const items = dropdown.querySelectorAll('.widget-dropdown li button');
-
-		button.addEventListener('click', (e) => {
-			e.stopPropagation();
-			dropdown.classList.toggle('is-active');
-		});
-
-		items.forEach((item) => {
-			item.addEventListener('click', () => {
-				const value = item.textContent.trim();
-
-				const outerSpan = button.querySelector('span');
-				const innerSpan = outerSpan ? outerSpan.querySelector('span') : null;
-
-				if (innerSpan) {
-					innerSpan.textContent = value;
-				} else if (outerSpan) {
-					outerSpan.textContent = value;
-				}
-				dropdown.classList.remove('is-active');
-			});
-		});
-	});
-
-	document.addEventListener('click', () => {
-		document.querySelectorAll('.widget-dropdown-wrap.is-active')
-			.forEach((el) => el.classList.remove('is-active'));
-	});
-</script>    </body>
+      <script src="./assets/js/apexCharts.js"></script>
+  <script src="./assets/js/chart.js"></script>
+  <script src="./assets/js/asideCollapse.js"></script>
+  <script src="./assets/js/sidebarDropdown.js"></script>
+  <script src="./assets/js/widgetDropdown.js"></script>
+  <script src="./assets/js/customersSort.js"></script>
+</body>
 </html>
