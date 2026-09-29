@@ -55,6 +55,7 @@
   height: 24px;
   aspect-ratio: 1;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .sidebar-item-text {
@@ -65,7 +66,6 @@
   max-width: 300px;
   opacity: 1;
   white-space: nowrap;
-  overflow: hidden;
   font-weight: 400;
   font-size: 14px;
   line-height: 14px;

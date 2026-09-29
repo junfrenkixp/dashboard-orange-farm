@@ -8,6 +8,12 @@
     aside.classList.toggle('is-collapsed');
     sidebarDropdowns.forEach(dropdown => {
       dropdown.classList.remove('is-open')
+
+      const toggle = dropdown.querySelector('[data-sidebar-dropdown-toggle]');
+
+      if (toggle) {
+          toggle.setAttribute('aria-expanded', 'false');
+      }
     });
   });
 </script>

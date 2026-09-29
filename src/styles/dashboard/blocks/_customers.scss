@@ -1,3 +1,129 @@
 .customers {
   grid-column: span 5;
 }
+
+.customers .widget-title {
+  margin-bottom: 16px;
+}
+
+.customers-list {
+  margin: 0 -16px 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.customers-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 40px 16px 16px;
+  border-radius: var(--border-radius-main);
+  background-color: transparent;
+  transition: .3s;
+
+  &:hover {
+    background-color: var(--sidebar-color-hover);
+  }
+}
+
+.customers-item a {
+  text-decoration: none;
+}
+
+.customers-item img {
+  width: 32px;
+  min-width: 32px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.customers-item .customers-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.customers-item .customers-info b {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: -0.3px;
+  color: var(--text-color-main);
+}
+
+.customers-item .customers-info small {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: -0.3px;
+  color: var(--text-color-second);
+}
+
+.customers-actions {
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 4px;
+  transition: .3s;
+}
+
+.customers-item:hover .customers-actions {
+  opacity: 1;
+  pointer-events: all;
+  user-select: all;
+}
+
+.customers-actions > button,
+.customers-actions > div > button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  min-width: 36px;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  border-radius: var(--border-radius-button);
+  background-color: transparent;
+  transition: .3s;
+
+  &:hover {
+    background-color: var(--sidebar-color-hover);
+  }
+  &:active {
+    background-color: var(--sidebar-color-active);
+  }
+}
+
+.customers-actions > button > svg,
+.customers-actions > div > button > svg {
+  width: 16px;
+  min-width: 16px;
+  aspect-ratio: 1;
+  color: var(--color-dark-orange);
+}
+
+.customers-actions > div {
+  position: relative;
+  margin-left: 20px;
+}
+
+.customers-actions > div::before {
+  content: '';
+  position: absolute;
+  left: -11px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 24px;
+  width: 1px;
+  background-color: var(--color-dark-orange);
+}

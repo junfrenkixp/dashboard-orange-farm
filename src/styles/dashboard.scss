@@ -5,7 +5,12 @@
 @forward 'dashboard/components/sidebar-item';
 @forward 'dashboard/components/widget';
 @forward 'dashboard/components/widget-dropdown';
+@forward 'dashboard/components/dropdown';
 @forward 'dashboard/blocks/revenues';
 @forward 'dashboard/blocks/lost-deals';
 @forward 'dashboard/blocks/goal';
 @forward 'dashboard/blocks/customers';
+@forward 'dashboard/blocks/growth';
+@forward 'dashboard/blocks/chats';
+@forward 'dashboard/blocks/new-deals';
+@forward 'dashboard/blocks/top-states';

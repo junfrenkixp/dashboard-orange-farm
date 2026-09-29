@@ -9,6 +9,70 @@
                 { label: 'Oldest', value: 'oldest' }
             ]
         } only %}
+        <ul class="customers-list">
+          {% set customersList = [
+            {
+              'img': './assets/images/avatar-1.avif',
+              'name': 'Chris Friedkly',
+              'info': 'Supermarket Villanova'
+            },
+            {
+              'img': './assets/images/avatar-2.avif',
+              'name': 'Maggie Johnson',
+              'info': 'Oasis Organic Inc.'
+            },
+            {
+              'img': './assets/images/avatar-3.avif',
+              'name': 'Gael Harry',
+              'info': 'New York Finest Fruits'
+            },
+            {
+              'img': './assets/images/avatar-4.avif',
+              'name': 'Jenna Sullivan',
+              'info': 'Walmart'
+            },
+          ] %}
+
+          {% for customer in customersList %}
+            <li class="customers-item">
+              <a href="#">
+                <img src="{{ customer.img }}" alt="" width="32" height="32">
+              </a>
+              <div class="customers-info">
+                <a href="#">
+                  <b>{{ customer.name }}</b>
+                </a>
+                <a href="#">
+                  <small>{{ customer.info }}</small>
+                </a>
+              </div>
+              <div class="customers-actions">
+                <button aria-label="Chat">
+                  <svg aria-hidden="true" focusable="false">
+                      <use href="./assets/sprite/dashboard.svg#icon-message-circle"></use>
+                  </svg>
+                </button>
+                <button aria-label="Starred">
+                  <svg aria-hidden="true" focusable="false">
+                      <use href="./assets/sprite/dashboard.svg#icon-star"></use>
+                  </svg>
+                </button>
+                <button aria-label="Change">
+                  <svg aria-hidden="true" focusable="false">
+                      <use href="./assets/sprite/dashboard.svg#icon-pencil"></use>
+                  </svg>
+                </button>
+                <div>
+                  <button aria-label="More">
+                    <svg aria-hidden="true" focusable="false">
+                        <use href="./assets/sprite/dashboard.svg#icon-dots-vertical"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
     </div>
     {% include "common/templates/components/_widget-link.twig" with {
         text: 'All customers'

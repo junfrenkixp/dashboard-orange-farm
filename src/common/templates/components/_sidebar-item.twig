@@ -10,7 +10,7 @@
 
     {% set media %}
         {% if props.img %}
-            <img src="{{ props.img }}" alt="" class="sidebar-item-img">
+            <img src="{{ props.img }}" alt="" class="sidebar-item-img" height="24" width="24">
         {% elseif props.icon %}
             <svg aria-hidden="true" focusable="false">
                 <use href="./assets/sprite/dashboard.svg#{{ props.icon }}"></use>

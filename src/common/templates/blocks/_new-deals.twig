@@ -1,0 +1,19 @@
+<div class="widget new-deals">
+    <div class="widget-inner">
+        <h2 class="widget-title">New deals</h2>
+        <ul class="new-deals-list">
+            {% set dealsList = ["Fruit2Go", "Marshall's MKT", "CCNT", "Joana Mini-market", "Little Brazil Vegan", "Target", "Organic Place", "Morello's"] %}
+
+            {% for deal in dealsList %}
+              <li>
+                  <a href="#">
+                      <svg aria-hidden="true" focusable="false">
+                          <use href="./assets/sprite/dashboard.svg#icon-square-rounded-plus"></use>
+                      </svg>
+                      {{ deal }}
+                  </a>
+              </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

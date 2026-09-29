@@ -70,7 +70,7 @@
     
     
     <div class="sidebar-item-wrap">
-                    <button class="sidebar-item">                            <img src="./assets/images/avatar-1.avif" alt="" class="sidebar-item-img">
+                    <button class="sidebar-item">                            <img src="./assets/images/avatar-1.avif" alt="" class="sidebar-item-img" height="24" width="24">
             
         <span class="sidebar-item-text"><b>Chris Friedkly</b><small>Supermarket Villanova</small></span>
     </button>
@@ -81,7 +81,7 @@
     
     
     <div class="sidebar-item-wrap">
-                    <button class="sidebar-item">                            <img src="./assets/images/avatar-2.avif" alt="" class="sidebar-item-img">
+                    <button class="sidebar-item">                            <img src="./assets/images/avatar-2.avif" alt="" class="sidebar-item-img" height="24" width="24">
             
         <span class="sidebar-item-text"><b>Maggie Johnson</b><small>Oasis Organic Inc.</small></span>
     </button>
@@ -92,7 +92,7 @@
     
     
     <div class="sidebar-item-wrap">
-                    <button class="sidebar-item">                            <img src="./assets/images/avatar-3.avif" alt="" class="sidebar-item-img">
+                    <button class="sidebar-item">                            <img src="./assets/images/avatar-3.avif" alt="" class="sidebar-item-img" height="24" width="24">
             
         <span class="sidebar-item-text"><b>Gael Harry</b><small>New York Finest Fruits</small></span>
     </button>
@@ -103,7 +103,7 @@
     
     
     <div class="sidebar-item-wrap">
-                    <button class="sidebar-item">                            <img src="./assets/images/avatar-4.avif" alt="" class="sidebar-item-img">
+                    <button class="sidebar-item">                            <img src="./assets/images/avatar-4.avif" alt="" class="sidebar-item-img" height="24" width="24">
             
         <span class="sidebar-item-text"><b>Jenna Sullivan</b><small>Walmart</small></span>
     </button>
@@ -236,6 +236,7 @@
     e.preventDefault();
     e.stopPropagation();
 
+    // Находим именно тот wrap, внутри которого кликнули
     const wrap = toggle.closest('.sidebar-item-wrap');
     if (!wrap) return;
 
@@ -256,6 +257,12 @@
     aside.classList.toggle('is-collapsed');
     sidebarDropdowns.forEach(dropdown => {
       dropdown.classList.remove('is-open')
+
+      const toggle = dropdown.querySelector('[data-sidebar-dropdown-toggle]');
+
+      if (toggle) {
+          toggle.setAttribute('aria-expanded', 'false');
+      }
     });
   });
 </script>
@@ -348,6 +355,157 @@
                     </ul>
     </div>
 </div>
+        <ul class="customers-list">
+          
+                      <li class="customers-item">
+              <a href="#">
+                <img src="./assets/images/avatar-1.avif" alt="" width="32" height="32">
+              </a>
+              <div class="customers-info">
+                <a href="#">
+                  <b>Chris Friedkly</b>
+                </a>
+                <a href="#">
+                  <small>Supermarket Villanova</small>
+                </a>
+              </div>
+              <div class="customers-actions">
+                <button aria-label="Chat">
+                  <svg aria-hidden="true" focusable="false">
+                      <use href="./assets/sprite/dashboard.svg#icon-message-circle"></use>
+                  </svg>
+                </button>
+                <button aria-label="Starred">
+                  <svg aria-hidden="true" focusable="false">
+                      <use href="./assets/sprite/dashboard.svg#icon-star"></use>
+                  </svg>
+                </button>
+                <button aria-label="Change">
+                  <svg aria-hidden="true" focusable="false">
+                      <use href="./assets/sprite/dashboard.svg#icon-pencil"></use>
+                  </svg>
+                </button>
+                <div>
+                  <button aria-label="More">
+                    <svg aria-hidden="true" focusable="false">
+                        <use href="./assets/sprite/dashboard.svg#icon-dots-vertical"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </li>
+                      <li class="customers-item">
+              <a href="#">
+                <img src="./assets/images/avatar-2.avif" alt="" width="32" height="32">
+              </a>
+              <div class="customers-info">
+                <a href="#">
+                  <b>Maggie Johnson</b>
+                </a>
+                <a href="#">
+                  <small>Oasis Organic Inc.</small>
+                </a>
+              </div>
+              <div class="customers-actions">
+                <button aria-label="Chat">
+                  <svg aria-hidden="true" focusable="false">
+                      <use href="./assets/sprite/dashboard.svg#icon-message-circle"></use>
+                  </svg>
+                </button>
+                <button aria-label="Starred">
+                  <svg aria-hidden="true" focusable="false">
+                      <use href="./assets/sprite/dashboard.svg#icon-star"></use>
+                  </svg>
+                </button>
+                <button aria-label="Change">
+                  <svg aria-hidden="true" focusable="false">
+                      <use href="./assets/sprite/dashboard.svg#icon-pencil"></use>
+                  </svg>
+                </button>
+                <div>
+                  <button aria-label="More">
+                    <svg aria-hidden="true" focusable="false">
+                        <use href="./assets/sprite/dashboard.svg#icon-dots-vertical"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </li>
+                      <li class="customers-item">
+              <a href="#">
+                <img src="./assets/images/avatar-3.avif" alt="" width="32" height="32">
+              </a>
+              <div class="customers-info">
+                <a href="#">
+                  <b>Gael Harry</b>
+                </a>
+                <a href="#">
+                  <small>New York Finest Fruits</small>
+                </a>
+              </div>
+              <div class="customers-actions">
+                <button aria-label="Chat">
+                  <svg aria-hidden="true" focusable="false">
+                      <use href="./assets/sprite/dashboard.svg#icon-message-circle"></use>
+                  </svg>
+                </button>
+                <button aria-label="Starred">
+                  <svg aria-hidden="true" focusable="false">
+                      <use href="./assets/sprite/dashboard.svg#icon-star"></use>
+                  </svg>
+                </button>
+                <button aria-label="Change">
+                  <svg aria-hidden="true" focusable="false">
+                      <use href="./assets/sprite/dashboard.svg#icon-pencil"></use>
+                  </svg>
+                </button>
+                <div>
+                  <button aria-label="More">
+                    <svg aria-hidden="true" focusable="false">
+                        <use href="./assets/sprite/dashboard.svg#icon-dots-vertical"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </li>
+                      <li class="customers-item">
+              <a href="#">
+                <img src="./assets/images/avatar-4.avif" alt="" width="32" height="32">
+              </a>
+              <div class="customers-info">
+                <a href="#">
+                  <b>Jenna Sullivan</b>
+                </a>
+                <a href="#">
+                  <small>Walmart</small>
+                </a>
+              </div>
+              <div class="customers-actions">
+                <button aria-label="Chat">
+                  <svg aria-hidden="true" focusable="false">
+                      <use href="./assets/sprite/dashboard.svg#icon-message-circle"></use>
+                  </svg>
+                </button>
+                <button aria-label="Starred">
+                  <svg aria-hidden="true" focusable="false">
+                      <use href="./assets/sprite/dashboard.svg#icon-star"></use>
+                  </svg>
+                </button>
+                <button aria-label="Change">
+                  <svg aria-hidden="true" focusable="false">
+                      <use href="./assets/sprite/dashboard.svg#icon-pencil"></use>
+                  </svg>
+                </button>
+                <div>
+                  <button aria-label="More">
+                    <svg aria-hidden="true" focusable="false">
+                        <use href="./assets/sprite/dashboard.svg#icon-dots-vertical"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </li>
+                  </ul>
     </div>
     <a href="#" class="widget-link">
     All customers
@@ -355,6 +513,283 @@
         <use href="./assets/sprite/dashboard.svg#icon-arrow-narrow-right"></use>
     </svg>
 </a>
+</div>
+    <div class="growth-wrap">
+  <div class="widget growth">
+    <div class="widget-inner">
+        <h2 class="widget-title">Growth</h2>
+        <div class="widget-dropdown-wrap">
+    <button class="widget-dropdown-button" type="button">
+        <span>Yearly</span>
+        <svg aria-hidden="true" focusable="false">
+            <use href="./assets/sprite/dashboard.svg#icon-chevron-down"></use>
+        </svg>
+    </button>
+    <div class="widget-dropdown">
+        <ul>
+                            <li>
+                    <button type="button" data-value="yearly">Yearly</button>
+                </li>
+                            <li>
+                    <button type="button" data-value="monthly">Monthly</button>
+                </li>
+                            <li>
+                    <button type="button" data-value="daily">Daily</button>
+                </li>
+                    </ul>
+    </div>
+</div>
+        <div id="growthChart"></div>
+    </div>
+  </div>
+  <div class="widget widget-sm growth-sm growth-month">
+    <div class="widget-inner">
+      <h2 class="growth-sm-title">Top month</h2>
+      <span>
+        <b>November</b>
+        2019
+      </span>
+    </div>
+  </div>
+  <div class="widget widget-sm growth-sm growth-year">
+    <div class="widget-inner">
+      <h2 class="growth-sm-title">Top year</h2>
+      <span>
+        <b>2023</b>
+        96K sold so far
+      </span>
+    </div>
+  </div>
+  <div class="widget widget-sm growth-sm growth-top">
+    <div class="widget-inner">
+      <h2 class="growth-sm-title">Top buyer</h2>
+      <a href="#">
+        <img src="./assets/images/avatar-2.avif" alt="" width="24" height="24">
+        <b>Maggie Johnson</b>
+        <small>Oasis Organic Inc.</small>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script src="./assets/js/apexCharts.js"></script>
+<script>
+const datasets = {
+            yearly: {
+                categories: ['2016','2017','2018','2019','2020','2021','2022','2023'],
+                values:     [8000, 10000, 30000, 55000, 8000, 14000, 55000, 100000]
+            },
+            monthly: {
+                categories: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+                values:     [4000, 6000, 8000, 12000, 18000, 25000, 30000, 34000, 38000, 42000, 46000, 50000]
+            },
+            all: {
+                categories: ['2018','2019','2020','2021','2022','2023','2024','2025'],
+                values:     [20000, 35000, 28000, 45000, 62000, 78000, 90000, 110000]
+            }
+        };
+
+        const baseOptions = {
+            chart: {
+                type: 'area',
+                height: 250,
+                toolbar: { show: false },
+                zoom: { enabled: false },
+                fontFamily: 'inherit'
+            },
+            stroke: {
+                curve: 'straight',
+                width: 2,
+                dashArray: 6,
+                colors: ['#25CD25']
+            },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    gradientToColors: ['#25CD25', '#25CD25'],
+                    shadeIntensity: 1,
+                    opacityFrom: 0.7,
+                    opacityTo: 0.1,
+                    stops: [0, 1000]
+                }
+            },
+            colors: ['#25CD25'],
+            markers: { size: 0, hover: { size: 5 } },
+            dataLabels: { enabled: false },
+            tooltip: {
+                enabled: true,
+                shared: false,
+                intersect: false,
+                x: { show: true },
+                y: { formatter: (v) => v.toLocaleString('en-US') },
+                marker: { show: false },
+                theme: 'light',
+                style: { fontSize: '13px' }
+            },
+            grid: {
+                borderColor: '#F1F1F1',
+                strokeDashArray: 0,
+                xaxis: { lines: { show: true } },
+                yaxis: { lines: { show: true } }
+            },
+            xaxis: {
+                labels: { style: { colors: '#8b8b8b', fontSize: '14px' } },
+                axisBorder: { show: false },
+                axisTicks: { show: false },
+                tooltip: { enabled: false }
+            },
+            yaxis: {
+              min: 0,
+              max: 100000,
+              tickAmount: 4,
+              labels: {
+                  formatter: function (value) {
+                      if (value === 0) return '0';
+                      if (value === 25000) return '10k';
+                      if (value === 50000) return '20k';
+                      if (value === 75000) return '50k';
+                      if (value === 100000) return '100k';
+                  }
+              }
+            }
+        };
+
+        const chartEl = document.querySelector('#growthChart');
+        const chart = new ApexCharts(chartEl, {
+            ...baseOptions,
+            series: [{ name: 'Growth', data: datasets.yearly.values }],
+            xaxis: { ...baseOptions.xaxis, categories: datasets.yearly.categories }
+        });
+        chart.render();
+</script>
+    <div class="widget chats">
+    <div class="widget-inner">
+        <h2 class="widget-title">Chats</h2>
+        <p class="chats-descr">2 unread messages</p>
+        <ul class="chats-list">
+            <li>
+                <a href="#" class="is-active is-new">
+                    <img src="./assets/images/avatar-2.avif" alt="" width="32" height="32">
+                </a>
+            </li>
+            <li>
+                <a href="#" class="is-active is-new">
+                    <img src="./assets/images/avatar-5.avif" alt="" width="32" height="32">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./assets/images/avatar-6.avif" alt="" width="32" height="32">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./assets/images/avatar-7.avif" alt="" width="32" height="32">
+                </a>
+            </li>
+        </ul>
+    </div>
+    <a href="#" class="widget-link">
+    All messages
+    <svg aria-hidden="true" focusable="false">
+        <use href="./assets/sprite/dashboard.svg#icon-arrow-narrow-right"></use>
+    </svg>
+</a>
+</div>
+    <div class="widget top-states">
+    <div class="widget-inner">
+        <h2 class="widget-title">Top states</h2>
+        <ul class="top-states-list">
+            <li style="width: 100%">
+              <b>NY</b>
+              <small>120k</small>
+            </li>
+            <li style="width: 85%">
+              <b>MA</b>
+              <small>80k</small>
+            </li>
+            <li style="width: 75%">
+              <b>NH</b>
+              <small>70k</small>
+            </li>
+            <li style="width: 65%">
+              <b>OR</b>
+              <small>50k</small>
+            </li>
+        </ul>
+    </div>
+</div>
+    <div class="widget new-deals">
+    <div class="widget-inner">
+        <h2 class="widget-title">New deals</h2>
+        <ul class="new-deals-list">
+            
+                          <li>
+                  <a href="#">
+                      <svg aria-hidden="true" focusable="false">
+                          <use href="./assets/sprite/dashboard.svg#icon-square-rounded-plus"></use>
+                      </svg>
+                      Fruit2Go
+                  </a>
+              </li>
+                          <li>
+                  <a href="#">
+                      <svg aria-hidden="true" focusable="false">
+                          <use href="./assets/sprite/dashboard.svg#icon-square-rounded-plus"></use>
+                      </svg>
+                      Marshall's MKT
+                  </a>
+              </li>
+                          <li>
+                  <a href="#">
+                      <svg aria-hidden="true" focusable="false">
+                          <use href="./assets/sprite/dashboard.svg#icon-square-rounded-plus"></use>
+                      </svg>
+                      CCNT
+                  </a>
+              </li>
+                          <li>
+                  <a href="#">
+                      <svg aria-hidden="true" focusable="false">
+                          <use href="./assets/sprite/dashboard.svg#icon-square-rounded-plus"></use>
+                      </svg>
+                      Joana Mini-market
+                  </a>
+              </li>
+                          <li>
+                  <a href="#">
+                      <svg aria-hidden="true" focusable="false">
+                          <use href="./assets/sprite/dashboard.svg#icon-square-rounded-plus"></use>
+                      </svg>
+                      Little Brazil Vegan
+                  </a>
+              </li>
+                          <li>
+                  <a href="#">
+                      <svg aria-hidden="true" focusable="false">
+                          <use href="./assets/sprite/dashboard.svg#icon-square-rounded-plus"></use>
+                      </svg>
+                      Target
+                  </a>
+              </li>
+                          <li>
+                  <a href="#">
+                      <svg aria-hidden="true" focusable="false">
+                          <use href="./assets/sprite/dashboard.svg#icon-square-rounded-plus"></use>
+                      </svg>
+                      Organic Place
+                  </a>
+              </li>
+                          <li>
+                  <a href="#">
+                      <svg aria-hidden="true" focusable="false">
+                          <use href="./assets/sprite/dashboard.svg#icon-square-rounded-plus"></use>
+                      </svg>
+                      Morello's
+                  </a>
+              </li>
+                    </ul>
+    </div>
 </div>
 </main>
 <script>

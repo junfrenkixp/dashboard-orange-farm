@@ -6,6 +6,7 @@
     e.preventDefault();
     e.stopPropagation();
 
+    // Находим именно тот wrap, внутри которого кликнули
     const wrap = toggle.closest('.sidebar-item-wrap');
     if (!wrap) return;
 

@@ -9,8 +9,12 @@
   background-color: var(--surface-bg);
 }
 
-.widget--sm {
+.widget-sm {
   padding: 16px;
+}
+
+.widget-sm .widget-inner {
+  height: 100%;
 }
 
 .widget-title {
