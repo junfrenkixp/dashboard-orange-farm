@@ -1,6 +1,6 @@
 <div class="widget customers">
     <div class="widget-inner">
-        <h2 class="widget-title">Customers</h2>
+        <div class="widget-title">Customers</div>
         {% include "common/templates/components/_widget-dropdown.twig" with {
             buttonContent: 'Sort by <span data-role="value">Newest</span>',
             dropdownId: 'customers-sort',
@@ -40,35 +40,31 @@
 
           {% for customer in customersList %}
             <li class="customers-item" data-order="{{ customer.order }}">
-              <a href="#">
+              <a href="#" class="customers-item-link">
                 <img src="{{ customer.img }}" alt="" width="32" height="32">
-              </a>
-              <div class="customers-info">
-                <a href="#">
+                <span class="customers-info">
                   <b>{{ customer.name }}</b>
-                </a>
-                <a href="#">
                   <small>{{ customer.info }}</small>
-                </a>
-              </div>
+                </span>
+              </a>
               <div class="customers-actions">
-                <button aria-label="Chat">
+                <button aria-label="Chat button">
                   <svg aria-hidden="true" focusable="false">
                       <use href="./assets/sprite/dashboard.svg#icon-message-circle"></use>
                   </svg>
                 </button>
-                <button aria-label="Starred">
+                <button aria-label="Starred button">
                   <svg aria-hidden="true" focusable="false">
                       <use href="./assets/sprite/dashboard.svg#icon-star"></use>
                   </svg>
                 </button>
-                <button aria-label="Change">
+                <button aria-label="Change button">
                   <svg aria-hidden="true" focusable="false">
                       <use href="./assets/sprite/dashboard.svg#icon-pencil"></use>
                   </svg>
                 </button>
                 <div>
-                  <button aria-label="More">
+                  <button aria-label="More button">
                     <svg aria-hidden="true" focusable="false">
                         <use href="./assets/sprite/dashboard.svg#icon-dots-vertical"></use>
                     </svg>

@@ -1,31 +1,41 @@
 <div class="widget chats">
-    <div class="widget-inner">
-        <h2 class="widget-title">Chats</h2>
-        <p class="chats-descr">2 unread messages</p>
-        <ul class="chats-list">
-            <li>
-                <a href="#" class="is-active is-new">
-                    <img src="./assets/images/avatar-2.avif" alt="" width="32" height="32">
-                </a>
-            </li>
-            <li>
-                <a href="#" class="is-active is-new">
-                    <img src="./assets/images/avatar-5.avif" alt="" width="32" height="32">
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="./assets/images/avatar-6.avif" alt="" width="32" height="32">
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="./assets/images/avatar-7.avif" alt="" width="32" height="32">
-                </a>
-            </li>
-        </ul>
-    </div>
-    {% include "common/templates/components/_widget-link.twig" with {
-        text: 'All messages'
-    } only %}
+  <div class="widget-inner">
+    <div class="widget-title">Chats</div>
+    <p class="chats-descr">2 unread messages</p>
+    <ul class="chats-list">
+      {% set chatList = [
+        {
+          'img': './assets/images/avatar-2.avif',
+          'name': 'user 2',
+          'isActive': true,
+          'isNew': true,
+        },
+        {
+          'img': './assets/images/avatar-5.avif',
+          'name': 'user 5',
+          'isActive': true,
+          'isNew': true,
+        },
+        {
+          'img': './assets/images/avatar-6.avif',
+          'name': 'user 6',
+        },
+        {
+          'img': './assets/images/avatar-7.avif',
+          'name': 'user 7',
+        },
+      ] %}
+      {% for user in chatList %}
+        {% set classes = (user.isActive ? 'is-active' : '') ~ (user.isNew ? ' is-new' : '')%}
+        <li>
+          <a href="#" class="{{ classes }}">
+            <img src="{{ user.img }}" alt="Chat with {{ user.name }}" width="32" height="32">
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% include "common/templates/components/_widget-link.twig" with {
+    text: 'All messages'
+  } only %}
 </div>
